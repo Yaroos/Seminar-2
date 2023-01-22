@@ -1,4 +1,10 @@
-﻿int ThirdDigit(int number)
+﻿// Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
+// 645 -> 5
+// 78 -> третьей цифры нет
+// 32679 -> 6
+
+
+int ThirdDigit(int number)
 {
     int thirdDigit = -1;
     int tempNumber = Math.Abs(number);
