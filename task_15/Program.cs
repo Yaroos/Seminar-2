@@ -4,24 +4,42 @@
 7 -> да
 1 -> нет
 */
-
-int GetNumber()
+string message = "Введите цифру";
+int GetNumber(string message)
 {
-    Console.WriteLine("Введите число дня недели: ");
-    int number = Convert.ToInt32(Console.ReadLine());
-    return number;
+    int resultNumber = 0;
+
+    while (true)
+    {
+        Console.WriteLine(message);
+
+        if(int.TryParse(Console.ReadLine(), out resultNumber))
+        {
+        break;
+        }
+        else
+        {
+            Console.WriteLine("ВВели не число или не коректное число. Повторите ввод.");
+        }
+    }
+    return resultNumber;
 }
 
-int numberDay = GetNumber();
-if (numberDay > 7)
+int numberDay = GetNumber(message);
+int CheckHolidays(int numberDay)
 {
+    if (numberDay > 7)
+    {
     Console.WriteLine("Введено не корректное число");
+    }
+    else if (numberDay < 8 & numberDay >= 6)
+    {
+        Console.WriteLine("Ура! Сегодня выходной");
+        }
+    else if (numberDay < 6)
+    {
+        Console.WriteLine("Сегодня будни");
+        }
+    return numberDay;
 }
-if (numberDay < 8 & numberDay >= 6)
-{
-    Console.WriteLine("Ура! Сегодня выходной");
-}
-if (numberDay < 6)
-{
-    Console.WriteLine("Сегодня будни");
-}
+int Checkout = CheckHolidays(numberDay);
